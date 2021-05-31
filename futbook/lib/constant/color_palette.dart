@@ -8,5 +8,5 @@ abstract class ColorPallete {
   static final Color secondary = HexColor("C4C4C4");
   static final Color backgroundColor = HexColor("FFFFFF");
   static final Color altBackgroundColor = HexColor("F9F9F9");
-  static final Color activeTextColor = HexColor("00C2FF");
+  static final Color activePrimaryColor = HexColor("00C2FF");
 }
