@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:futbook/constant/color_palette.dart';
 import 'package:futbook/provider/auth_provider.dart';
 import 'package:futbook/provider/main_provider.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +12,10 @@ extension ContextExtension on BuildContext {
   pop({dynamic data}) {
     return Navigator.of(this).pop(data);
   }
+
+  TextTheme get textTheme => Theme.of(this).textTheme;
+
+  Size get size => MediaQuery.of(this).size;
 
   showSnackbar(String? msg) {
     return ScaffoldMessenger.of(this).showSnackBar(
@@ -32,11 +35,7 @@ extension ContextExtension on BuildContext {
     );
   }
 
-  getAuthProvider() {
-    return Provider.of<AuthProvider>(this);
-  }
+  AuthProvider get authProvider => Provider.of<AuthProvider>(this);
 
-  getMainProvider() {
-    return Provider.of<MainProvider>(this);
-  }
+  MainProvider get mainProvider => Provider.of<MainProvider>(this);
 }
