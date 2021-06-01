@@ -15,7 +15,7 @@ extension ContextExtension on BuildContext {
 
   TextTheme get textTheme => Theme.of(this).textTheme;
 
-  Size get size => MediaQuery.of(this).size;
+  Size get sizeOf => MediaQuery.of(this).size;
 
   showSnackbar(String? msg) {
     return ScaffoldMessenger.of(this).showSnackBar(
