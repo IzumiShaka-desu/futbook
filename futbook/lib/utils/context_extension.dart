@@ -9,6 +9,11 @@ extension ContextExtension on BuildContext {
     return Navigator.of(this).push(MaterialPageRoute(builder: (ctx) => to));
   }
 
+  replaceTo(Widget to) {
+    return Navigator.of(this)
+        .pushReplacement(MaterialPageRoute(builder: (ctx) => to));
+  }
+
   pop({dynamic data}) {
     return Navigator.of(this).pop(data);
   }
