@@ -9,4 +9,6 @@ abstract class ColorPallete {
   static final Color backgroundColor = HexColor("FFFFFF");
   static final Color altBackgroundColor = HexColor("F9F9F9");
   static final Color activePrimaryColor = HexColor("00C2FF");
+  static final Color greyTextColor = HexColor("BDBDBD");
+  static final Color starIconColor = HexColor("F2C94C");
 }
