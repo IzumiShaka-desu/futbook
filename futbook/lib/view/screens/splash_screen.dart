@@ -15,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   bool animate = false;
   @override
   void initState() {
+    context.mainProvider.loadFutsalList();
     Timer(Duration(milliseconds: 100), () {
       setState(() {
         animate = true;
@@ -63,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                 borderRadius: BorderRadius.circular(30),
                                 color: ColorPallete.activePrimaryColor,
                               ),
-                              onEnd: () => context.pushTo(MainScreen()),
+                              onEnd: () => context.replaceTo(MainScreen()),
                             ),
                           ],
                         ),
