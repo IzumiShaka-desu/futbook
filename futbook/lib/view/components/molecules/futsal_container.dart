@@ -5,8 +5,14 @@ import 'package:get/get.dart';
 
 class FutsalContainer extends StatelessWidget {
   final String imageUrl;
-
-  const FutsalContainer({Key? key, required this.imageUrl}) : super(key: key);
+  final String name;
+  final String price;
+  const FutsalContainer(
+      {Key? key,
+      required this.imageUrl,
+      required this.name,
+      required this.price})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,30 +36,30 @@ class FutsalContainer extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'title',
+                        '$name',
                         style: Get.textTheme.headline5!.copyWith(fontSize: 20),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      Row(
-                        children: [
-                          Icon(Icons.location_pin),
-                          Text('place'),
-                        ],
-                      ),
+                      Icon(Icons.location_pin),
+                      Text('karawang'),
+                    ],
+                  ),
+                  Row(
+                    children: [
                       Icon(
                         Icons.star_border_outlined,
                         color: ColorPallete.starIconColor,
                       ),
-                      Text('place'),
+                      Text('4.5'),
                     ],
                   ),
                   Row(
                     children: [
                       Icon(Icons.attach_money_sharp),
-                      Text('hourly rate'),
+                      Text('$price'),
                     ],
                   ),
                 ],
