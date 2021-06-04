@@ -26,6 +26,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio: ^4.0.0
   dots_indicator: ^2.0.0
+  flutter_circular_slider: ^2.5.0
+  get: ^4.1.4
   google_fonts: ^2.1.0
   hexcolor: ^2.0.3
   pin_code_fields: ^7.2.0
