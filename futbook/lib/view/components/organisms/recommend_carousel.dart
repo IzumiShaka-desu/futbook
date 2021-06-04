@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:futbook/constant/color_palette.dart';
+import 'package:futbook/view/components/atoms/image_container_network.dart';
 import 'package:get/get.dart';
 
 class RecommendedCarousel extends StatefulWidget {
@@ -58,6 +59,9 @@ class _RecommendedCarouselState extends State<RecommendedCarousel> {
                     child: Stack(children: [
                       Positioned.fill(
                         child: Container(
+                          child: ImageContainerNetwork(
+                            imageUrl: widget.img[index],
+                          ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             color: Colors.grey,

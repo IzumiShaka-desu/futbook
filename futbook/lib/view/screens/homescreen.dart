@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:futbook/data/model/futsal.dart';
 import 'package:futbook/provider/main_provider.dart';
 import 'package:futbook/view/components/organisms/futsal_list.dart';
 import 'package:futbook/view/components/organisms/recommend_carousel.dart';
@@ -21,12 +22,17 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           RecommendedCarousel(
-            img: List<String>.generate(6, (index) => "null"),
+            img: [
+              "https://raw.githubusercontent.com/IzumiShaka-desu/gif_host/main/img/ikl.jpg",
+              "https://raw.githubusercontent.com/IzumiShaka-desu/gif_host/main/img/ikl2.jpg",
+              "https://raw.githubusercontent.com/IzumiShaka-desu/gif_host/main/img/ikl.jpg",
+              "https://raw.githubusercontent.com/IzumiShaka-desu/gif_host/main/img/ikl2.jpg"
+            ],
           ),
           Expanded(
               child: Consumer<MainProvider>(
             builder: (ctx, prov, _) => FutsalList(
-              futsal: List.generate(10, (index) => index),
+              futsal: Futsal.dummies,
             ),
           ))
         ],
