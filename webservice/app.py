@@ -1,6 +1,19 @@
 from flask import Flask,request,url_for,jsonify
+import decimal
+import flask.json
 import hashlib
+import datetime 
 import pymysql.cursors
+class MyJSONEncoder(flask.json.JSONEncoder):
+
+    def default(self, obj):
+        print(str(obj))
+        if isinstance(obj, decimal.Decimal):
+            # Convert decimal instances to strings.
+            return str(obj)
+        if isinstance(obj, (datetime.date, datetime.datetime,datetime.timedelta)):
+            return ""+str(obj)+""
+        return super(MyJSONEncoder, self).default(obj)
 conn=cursor=None
 def openDb():
     global conn,cursor
@@ -10,6 +23,7 @@ def closeDb():
     cursor.close()
     conn.close()
 app=Flask(__name__)
+app.json_encoder = MyJSONEncoder
 @app.route('/')
 def index():
     return "hola"
@@ -27,9 +41,14 @@ def getFields():
 def getBookList(id):
    openDb()
    container=[]
-   cursor.execute("Select * from booking where id_account=%s",(id))
+   cursor.execute("Select * from booking natural join field where id_account=%s",(id))
    data=cursor.fetchall()
    for order in data:
+       order.pop("description",None)
+       order.pop("location",None)
+       order.pop("pictures",None)
+       order.pop("count_field",None)
+       order.pop("price_per_hour",None)
        container.append(order)
    closeDb()
    return jsonify(container)
@@ -99,6 +118,7 @@ def getProfile(id):
    if data==None:
        return jsonify({})
    return jsonify(data)
+
 @app.route('/profile/<id>/order/make', methods=['POST'])
 def makeorder(id):
    map=request.form
@@ -114,3 +134,4 @@ def makeorder(id):
 
 if __name__=="__main__":
     app.run(debug=True)
+
